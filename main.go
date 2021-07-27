@@ -94,6 +94,30 @@ func main() {
 	in <- "su"
 	fmt.Println(<-out)
 
+	in <- "config"
+	fmt.Println(<-out)
+
+	in <- "interface GigaEthernet 0/1"
+	fmt.Println(<-out)
+
+	in <- "poe disable"
+	fmt.Println(<-out)
+
+	in <- "show poe interface GigaEthernet 0/1"
+	fmt.Println(<-out)
+
+	in <- "no poe disable"
+	fmt.Println(<-out)
+
+	in <- "show poe interface GigaEthernet 0/1"
+	fmt.Println(<-out)
+
+	in <- "exit"
+	fmt.Println(<-out)
+
+	in <- "exit"
+	fmt.Println(<-out)
+
 	in <- "exit"
 	fmt.Println(<-out)
 
