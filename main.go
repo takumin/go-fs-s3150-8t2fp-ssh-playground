@@ -89,40 +89,40 @@ func main() {
 		log.Fatal("Failed to session.Shell(): ", err)
 	}
 
-	<-out
+	fmt.Printf(<-out)
 
 	in <- "su"
-	fmt.Println(<-out)
+	fmt.Printf(<-out)
 
 	in <- "config"
-	fmt.Println(<-out)
+	fmt.Printf(<-out)
 
 	in <- "interface GigaEthernet 0/1"
-	fmt.Println(<-out)
+	fmt.Printf(<-out)
 
 	in <- "poe disable"
-	fmt.Println(<-out)
+	fmt.Printf(<-out)
 
 	in <- "show poe interface GigaEthernet 0/1"
-	fmt.Println(<-out)
+	fmt.Printf(<-out)
 
 	in <- "no poe disable"
-	fmt.Println(<-out)
+	fmt.Printf(<-out)
 
 	in <- "show poe interface GigaEthernet 0/1"
-	fmt.Println(<-out)
+	fmt.Printf(<-out)
 
 	in <- "exit"
-	fmt.Println(<-out)
+	fmt.Printf(<-out)
 
 	in <- "exit"
-	fmt.Println(<-out)
+	fmt.Printf(<-out)
 
 	in <- "exit"
-	fmt.Println(<-out)
+	fmt.Printf(<-out)
 
 	in <- "exit"
-	fmt.Println(<-out)
+	fmt.Printf(<-out)
 
 	if err := session.Wait(); err != nil {
 		var errMissing *ssh.ExitMissingError
