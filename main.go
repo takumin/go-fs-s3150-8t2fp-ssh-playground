@@ -6,6 +6,7 @@ import (
 	"io"
 	"log"
 	"sync"
+	"time"
 
 	"golang.org/x/crypto/ssh"
 )
@@ -91,37 +92,33 @@ func main() {
 
 	fmt.Printf(<-out)
 
-	in <- "su"
+	in <- "enter"
 	fmt.Printf(<-out)
 
 	in <- "config"
 	fmt.Printf(<-out)
 
-	in <- "interface GigaEthernet 0/1"
+	in <- "interface range GigaEthernet 0/5-8"
 	fmt.Printf(<-out)
 
 	in <- "poe disable"
 	fmt.Printf(<-out)
 
-	in <- "show poe interface GigaEthernet 0/1"
-	fmt.Printf(<-out)
+	time.Sleep(time.Second * 10)
 
 	in <- "no poe disable"
 	fmt.Printf(<-out)
 
-	in <- "show poe interface GigaEthernet 0/1"
+	in <- "quit"
 	fmt.Printf(<-out)
 
-	in <- "exit"
+	in <- "quit"
 	fmt.Printf(<-out)
 
-	in <- "exit"
+	in <- "quit"
 	fmt.Printf(<-out)
 
-	in <- "exit"
-	fmt.Printf(<-out)
-
-	in <- "exit"
+	in <- "quit"
 	fmt.Printf(<-out)
 
 	if err := session.Wait(); err != nil {
